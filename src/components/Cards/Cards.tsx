@@ -22,9 +22,7 @@ const Cards = ({ character }) => {
             alt="CharacterImage"
             className="img-fluid"
           />
-          <div
-            className={`position-absolute top-0 start-0 badge ${badgeClass}`}
-          >
+          <div className={`position-absolute badge ${badgeClass}`}>
             {character.status}
           </div>
         </div>

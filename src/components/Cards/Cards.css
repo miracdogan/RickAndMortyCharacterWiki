@@ -1,8 +1,11 @@
-.card {
-  border: 2px solid #000000;
+.card img {
+  margin: 0;
+  padding: 0;
+  border: 2px solid transparent;
 }
 
-.card img {
-  display: block;
-  margin: 0;
+.badge {
+  top: 5px;
+  left: 5px;
+  font-size: 14px;
 }

@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap";
 import Search from "./components/Search/Search";
 import Filters from "./components/Filters/Filters";
 import Cards from "./components/Cards/Cards";
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -44,6 +45,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Pagination />
     </div>
   );
 }
