@@ -8,9 +8,10 @@ import Pagination from "./components/Pagination/Pagination";
 
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
+  const [search, setSearch] = useState("");
   const [fetchedData, setFetchedData] = useState({ info: {}, results: [] });
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
 
   useEffect(() => {
     (async function () {
@@ -30,22 +31,18 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-center my-5">Rick & Morty Wiki🪐</h1>
-      <Search />
+      <Search setPageNumber={setPageNumber} setSearch={setSearch} />
       <div className="container my-5">
         <div className="row">
           <div className="col-3">
             <Filters />
           </div>
           <div className="col-9">
-            <div className="row">
-              {fetchedData.results.map((character, index) => (
-                <Cards key={index} character={character} />
-              ))}
-            </div>
+            <Cards characters={fetchedData.results} search={search} />
           </div>
         </div>
       </div>
-      <Pagination />
+      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
 }

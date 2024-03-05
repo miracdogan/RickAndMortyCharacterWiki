@@ -1,44 +1,60 @@
 import React from "react";
 import "./Cards.css";
 
-const Cards = ({ character }) => {
+const Cards = ({
+  characters,
+  search,
+}: {
+  characters: any[];
+  search: string;
+}) => {
   let badgeClass = "";
 
-  if (character) {
-    if (character.status === "Dead") {
-      badgeClass = "bg-danger";
-    } else if (character.status === "Alive") {
-      badgeClass = "bg-success";
-    } else {
-      badgeClass = "bg-secondary";
-    }
+  const filteredCharacters = characters.filter((character: any) =>
+    character.name.toLowerCase().includes(search.toLowerCase())
+  );
 
-    //TODO: Adjust image border.
-    return (
-      <div className="card my-1 ms-1 col-3">
-        <div className="position-relative">
-          <img
-            src={character.image}
-            alt="CharacterImage"
-            className="img-fluid"
-          />
-          <div className={`position-absolute badge ${badgeClass}`}>
-            {character.status}
-          </div>
-        </div>
-        <div className="content mt-2">
-          <div className="fs-4 fw-semibold">{character.name}</div>
-          <div className="my-3">
-            <div className="">Last Location📍</div>
-            <div className="fs-5">{character.location.name}</div>
-          </div>
-        </div>
-      </div>
-    );
-  } else {
-    //TODO:If there is no characters according to search return special message
-    return <div className="col-3">There is no character for this search.</div>;
-  }
+  return (
+    <div className="row">
+      {filteredCharacters.length > 0 ? (
+        filteredCharacters.map((character: any, index: any) => {
+          if (character) {
+            if (character.status === "Dead") {
+              badgeClass = "bg-danger";
+            } else if (character.status === "Alive") {
+              badgeClass = "bg-success";
+            } else {
+              badgeClass = "bg-secondary";
+            }
+
+            return (
+              <div className="card my-1 ms-1 col-3" key={index}>
+                <div className="position-relative">
+                  <img
+                    src={character.image}
+                    alt="CharacterImage"
+                    className="img-fluid"
+                  />
+                  <div className={`position-absolute badge ${badgeClass}`}>
+                    {character.status}
+                  </div>
+                </div>
+                <div className="content mt-2">
+                  <div className="fs-4 fw-semibold">{character.name}</div>
+                  <div className="my-3">
+                    <div className="">Last Location📍</div>
+                    <div className="fs-5">{character.location.name}</div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+        })
+      ) : (
+        <div className="col-3">No Characters Found...</div>
+      )}
+    </div>
+  );
 };
 
 export default Cards;

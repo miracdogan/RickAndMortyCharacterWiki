@@ -1,7 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Search = () => {
+const Search = ({
+  setSearch,
+  setPageNumber,
+}: {
+  setSearch: Function;
+  setPageNumber: Function;
+}) => {
   return (
     <div className="d-flex justify-content-center align-items-center">
       <input
@@ -9,11 +15,11 @@ const Search = () => {
         className="form-control mx-2"
         style={{ maxWidth: "400px" }}
         placeholder="Search for characters..."
-        aria-label="Search"
+        onChange={(e) => {
+          setPageNumber(1);
+          setSearch(e.target.value);
+        }}
       />
-      <button className="btn btn-primary" type="button">
-        Search
-      </button>
     </div>
   );
 };
