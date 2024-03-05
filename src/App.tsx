@@ -28,14 +28,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-center my-5">Rick & Morty Wiki</h1>
+      <h1 className="text-center my-5">Rick & Morty Wiki🪐</h1>
       <Search />
       <div className="container my-5">
         <div className="row">
           <div className="col-3">
             <Filters />
           </div>
-          <div className="col-8">
+          <div className="col-9">
             <div className="row">
               {fetchedData.results.map((character, index) => (
                 <Cards key={index} character={character} />
