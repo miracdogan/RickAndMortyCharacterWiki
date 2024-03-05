@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import Search from "./components/Search/Search";
@@ -8,15 +7,22 @@ import Cards from "./components/Cards/Cards";
 
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
-  const [fetchedData, setFetchedData] = useState([]);
+  const [fetchedData, setFetchedData] = useState({ info: {}, results: [] });
 
-  console.log(fetchedData);
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
 
   useEffect(() => {
     (async function () {
-      let data = await fetch(api).then((res) => res.json());
-      setFetchedData(data);
+      try {
+        let response = await fetch(api);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        let data = await response.json();
+        setFetchedData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     })();
   }, [api]);
 
@@ -24,7 +30,6 @@ function App() {
     <div className="App">
       <h1 className="text-center my-5">Rick & Morty Wiki</h1>
       <Search />
-
       <div className="container my-5">
         <div className="row">
           <div className="col-3">
@@ -32,10 +37,9 @@ function App() {
           </div>
           <div className="col-8">
             <div className="row">
-              <Cards />
-              <Cards />
-              <Cards />
-              <Cards />
+              {fetchedData.results.map((character, index) => (
+                <Cards key={index} character={character} />
+              ))}
             </div>
           </div>
         </div>
