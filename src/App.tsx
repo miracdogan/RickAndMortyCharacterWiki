@@ -10,9 +10,10 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
   const [fetchedData, setFetchedData] = useState({ info: {}, results: [] });
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${filter}`;
 
   useEffect(() => {
     (async function () {
@@ -29,6 +30,12 @@ function App() {
     })();
   }, [api]);
 
+  const handleFilterChange = (event: any) => {
+    const selectedFilter = event.target.value;
+    setFilter(selectedFilter);
+    setPageNumber(1);
+  };
+
   return (
     <div className="App">
       <div className="container-fluid my-2">
@@ -42,12 +49,9 @@ function App() {
         </div>
       </div>
       <Search setPageNumber={setPageNumber} setSearch={setSearch} />
-      {/* <div className="container-fluid"></div> */}
       <div className="my-5">
         <div className="row">
-          <div className="col-2">
-            <Filters />
-          </div>
+          <Filters handleFilterChange={handleFilterChange} />
           <div className="col-10">
             <Cards characters={fetchedData.results} search={search} />
           </div>
