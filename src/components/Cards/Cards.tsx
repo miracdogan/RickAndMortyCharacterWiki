@@ -28,7 +28,10 @@ const Cards = ({
             }
 
             return (
-              <div className="card my-1 ms-1 col-2" key={index}>
+              <div
+                className="container-character card my-1 ms-3 col-2"
+                key={index}
+              >
                 <div className="position-relative">
                   <img
                     src={character.image}

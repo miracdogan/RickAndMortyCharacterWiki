@@ -1,16 +1,31 @@
 .filter-container {
-  border: 2px solid #007bff; /* Daha kalın bir kenarlık */
-  border-radius: 10px; /* Yuvarlatılmış köşeler */
-  padding: 15px; /* İçeriği sarmak için dolgu ekleyin */
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* Gölgelendirme efekti */
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
 }
 
 .radio-button {
-  /* Daha belirgin bir renk */
   border-color: #007bff;
-  background-color: #007bff;
-  width: 20px; /* Daha büyük bir boyut */
-  height: 20px; /* Daha büyük bir boyut */
+  background-color: #ffffff;
+  width: 18px;
+  height: 18px;
+}
+
+.radio-group {
+  margin-bottom: 10px;
+}
+
+.radio-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.radio-group hr {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-top: 1px solid #ccc;
 }
 
 .form-check .form-check-input {
