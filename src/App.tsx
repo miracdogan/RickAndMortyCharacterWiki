@@ -5,6 +5,7 @@ import Search from "./components/Search/Search";
 import Filters from "./components/Filters/Filters";
 import Cards from "./components/Cards/Cards";
 import Pagination from "./components/Pagination/Pagination";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -30,19 +31,33 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-center my-5">Rick & Morty Wiki🪐</h1>
-      <Search setPageNumber={setPageNumber} setSearch={setSearch} />
-      <div className="container my-5">
+      <div className="container-fluid my-2">
         <div className="row">
-          <div className="col-3">
+          <div className="col-4">
+            <h1 className="text-center">Rick & Morty Wiki🪐</h1>
+          </div>
+          <div className="col-8">
+            <Navbar />
+          </div>
+        </div>
+      </div>
+      <Search setPageNumber={setPageNumber} setSearch={setSearch} />
+      {/* <div className="container-fluid"></div> */}
+      <div className="my-5">
+        <div className="row">
+          <div className="col-2">
             <Filters />
           </div>
-          <div className="col-9">
+          <div className="col-10">
             <Cards characters={fetchedData.results} search={search} />
           </div>
         </div>
       </div>
-      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} />
+      <Pagination
+        pageNumber={pageNumber}
+        setPageNumber={setPageNumber}
+        info={fetchedData.info}
+      />
     </div>
   );
 }

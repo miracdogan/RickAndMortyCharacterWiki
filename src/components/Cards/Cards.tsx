@@ -28,7 +28,7 @@ const Cards = ({
             }
 
             return (
-              <div className="card my-1 ms-1 col-3" key={index}>
+              <div className="card my-1 ms-1 col-2" key={index}>
                 <div className="position-relative">
                   <img
                     src={character.image}
@@ -40,10 +40,14 @@ const Cards = ({
                   </div>
                 </div>
                 <div className="content mt-2">
-                  <div className="fs-4 fw-semibold">{character.name}</div>
+                  <div className="text-center fs-4 fw-semibold">
+                    {character.name}
+                  </div>
                   <div className="my-3">
-                    <div className="">Last Location📍</div>
-                    <div className="fs-5">{character.location.name}</div>
+                    <div className="text-center">Last Location📍</div>
+                    <div className="text-center fs-5">
+                      {character.location.name}
+                    </div>
                   </div>
                 </div>
               </div>
