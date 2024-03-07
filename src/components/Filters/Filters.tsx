@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Filters.css";
 const Filters = ({ handleFilterChange }) => {
   return (
     <div className="col-2">

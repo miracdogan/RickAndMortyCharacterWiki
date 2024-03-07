@@ -1,5 +1,19 @@
 .filter-container {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
+  border: 2px solid #007bff; /* Daha kalın bir kenarlık */
+  border-radius: 10px; /* Yuvarlatılmış köşeler */
+  padding: 15px; /* İçeriği sarmak için dolgu ekleyin */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* Gölgelendirme efekti */
+}
+
+.radio-button {
+  /* Daha belirgin bir renk */
+  border-color: #007bff;
+  background-color: #007bff;
+  width: 20px; /* Daha büyük bir boyut */
+  height: 20px; /* Daha büyük bir boyut */
+}
+
+.form-check .form-check-input {
+  float: left;
+  margin-left: 0.5em;
 }
