@@ -10,10 +10,12 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("");
+  const [status, setStatus] = useState("");
+  const [gender, setGender] = useState("");
+  const [type, setType] = useState("");
   const [fetchedData, setFetchedData] = useState({ info: {}, results: [] });
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${filter}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&type=${type}`;
 
   useEffect(() => {
     (async function () {
@@ -31,8 +33,14 @@ function App() {
   }, [api]);
 
   const handleFilterChange = (event: any) => {
-    const selectedFilter = event.target.value;
-    setFilter(selectedFilter);
+    const { name, value } = event.target;
+    if (name === "status") {
+      setStatus(value);
+    } else if (name === "gender") {
+      setGender(value);
+    } else if (name === "type") {
+      setType(value);
+    }
     setPageNumber(1);
   };
 

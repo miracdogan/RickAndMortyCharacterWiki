@@ -1,9 +1,7 @@
-// Filters.tsx
-
 import React from "react";
 import "./Filters.css"; // Oluşturduğumuz CSS dosyasını içe aktarın
 
-const Filters = ({ handleFilterChange }) => {
+const Filters = ({ handleFilterChange }: { handleFilterChange: any }) => {
   return (
     <div className="col-2">
       <div className="text-center fw-bold fs-4 mb-2">Filters</div>
@@ -14,7 +12,6 @@ const Filters = ({ handleFilterChange }) => {
               className="form-check-input me-2 radio-button"
               type="radio"
               name="status"
-              id="alive"
               value="alive"
               onChange={handleFilterChange}
             />
@@ -27,7 +24,6 @@ const Filters = ({ handleFilterChange }) => {
               className="form-check-input me-2 radio-button"
               type="radio"
               name="status"
-              id="dead"
               value="dead"
               onChange={handleFilterChange}
             />
@@ -40,7 +36,6 @@ const Filters = ({ handleFilterChange }) => {
               className="form-check-input me-2 radio-button"
               type="radio"
               name="status"
-              id="unknown"
               value="unknown"
               onChange={handleFilterChange}
             />
@@ -54,7 +49,6 @@ const Filters = ({ handleFilterChange }) => {
               className="form-check-input me-2 radio-button"
               type="radio"
               name="gender"
-              id="male"
               value="male"
               onChange={handleFilterChange}
             />
@@ -67,11 +61,107 @@ const Filters = ({ handleFilterChange }) => {
               className="form-check-input me-2 radio-button"
               type="radio"
               name="gender"
-              id="female"
               value="female"
               onChange={handleFilterChange}
             />
             Female
+          </label>
+        </div>
+        <hr />
+        <div className="radio-group">
+          <label>
+            <input
+              className="form-check-input me-2 radio-button"
+              type="radio"
+              name="type"
+              value="Human"
+              onChange={handleFilterChange}
+            />
+            Human
+          </label>
+        </div>
+        <div className="radio-group">
+          <label>
+            <input
+              className="form-check-input me-2 radio-button"
+              type="radio"
+              name="type"
+              value="alien"
+              onChange={handleFilterChange}
+            />
+            Alien
+          </label>
+        </div>
+        <div className="radio-group">
+          <label>
+            <input
+              className="form-check-input me-2 radio-button"
+              type="radio"
+              name="type"
+              value="animal"
+              onChange={handleFilterChange}
+            />
+            Animal
+          </label>
+        </div>
+        <div className="radio-group">
+          <label>
+            <input
+              className="form-check-input me-2 radio-button"
+              type="radio"
+              name="type"
+              value="crononenberg"
+              onChange={handleFilterChange}
+            />
+            Crononenberg
+          </label>
+        </div>
+        <div className="radio-group">
+          <label>
+            <input
+              className="form-check-input me-2 radio-button"
+              type="radio"
+              name="type"
+              value="disease"
+              onChange={handleFilterChange}
+            />
+            Disease
+          </label>
+        </div>
+        <div className="radio-group">
+          <label>
+            <input
+              className="form-check-input me-2 radio-button"
+              type="radio"
+              name="type"
+              value="humanoid"
+              onChange={handleFilterChange}
+            />
+            Humanoid
+          </label>
+        </div>
+        <div className="radio-group">
+          <label>
+            <input
+              className="form-check-input me-2 radio-button"
+              type="radio"
+              name="type"
+              value="poopybutthole"
+              onChange={handleFilterChange}
+            />
+            Poopybutthole
+          </label>
+        </div>
+        <div className="radio-group">
+          <label>
+            <input
+              className="form-check-input me-2 radio-button"
+              type="radio"
+              name="type"
+              value="robot"
+              onChange={handleFilterChange}
+            />
+            Robot
           </label>
         </div>
       </div>
