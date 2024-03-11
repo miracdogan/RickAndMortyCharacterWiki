@@ -12,10 +12,10 @@ function App() {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
   const [gender, setGender] = useState("");
-  const [type, setType] = useState("");
+  const [species, setSpecies] = useState("");
   const [fetchedData, setFetchedData] = useState({ info: {}, results: [] });
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&type=${type}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
   useEffect(() => {
     (async function () {
@@ -31,6 +31,7 @@ function App() {
       }
     })();
   }, [api]);
+  console.log(api);
 
   const handleFilterChange = (event: any) => {
     const { name, value } = event.target;
@@ -38,8 +39,8 @@ function App() {
       setStatus(value);
     } else if (name === "gender") {
       setGender(value);
-    } else if (name === "type") {
-      setType(value);
+    } else if (name === "species") {
+      setSpecies(value);
     }
     setPageNumber(1);
   };

@@ -73,8 +73,8 @@ const Filters = ({ handleFilterChange }: { handleFilterChange: any }) => {
             <input
               className="form-check-input me-2 radio-button"
               type="radio"
-              name="type"
-              value="Human"
+              name="species"
+              value="human"
               onChange={handleFilterChange}
             />
             Human
@@ -85,7 +85,7 @@ const Filters = ({ handleFilterChange }: { handleFilterChange: any }) => {
             <input
               className="form-check-input me-2 radio-button"
               type="radio"
-              name="type"
+              name="species"
               value="alien"
               onChange={handleFilterChange}
             />
@@ -97,7 +97,7 @@ const Filters = ({ handleFilterChange }: { handleFilterChange: any }) => {
             <input
               className="form-check-input me-2 radio-button"
               type="radio"
-              name="type"
+              name="species"
               value="animal"
               onChange={handleFilterChange}
             />
@@ -109,7 +109,7 @@ const Filters = ({ handleFilterChange }: { handleFilterChange: any }) => {
             <input
               className="form-check-input me-2 radio-button"
               type="radio"
-              name="type"
+              name="species"
               value="crononenberg"
               onChange={handleFilterChange}
             />
@@ -121,7 +121,7 @@ const Filters = ({ handleFilterChange }: { handleFilterChange: any }) => {
             <input
               className="form-check-input me-2 radio-button"
               type="radio"
-              name="type"
+              name="species"
               value="disease"
               onChange={handleFilterChange}
             />
@@ -133,7 +133,7 @@ const Filters = ({ handleFilterChange }: { handleFilterChange: any }) => {
             <input
               className="form-check-input me-2 radio-button"
               type="radio"
-              name="type"
+              name="species"
               value="humanoid"
               onChange={handleFilterChange}
             />
@@ -145,7 +145,7 @@ const Filters = ({ handleFilterChange }: { handleFilterChange: any }) => {
             <input
               className="form-check-input me-2 radio-button"
               type="radio"
-              name="type"
+              name="species"
               value="poopybutthole"
               onChange={handleFilterChange}
             />
@@ -157,7 +157,7 @@ const Filters = ({ handleFilterChange }: { handleFilterChange: any }) => {
             <input
               className="form-check-input me-2 radio-button"
               type="radio"
-              name="type"
+              name="species"
               value="robot"
               onChange={handleFilterChange}
             />
