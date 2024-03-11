@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
-import Search from "./components/Search/Search";
-import Filters from "./components/Filters/Filters";
-import Cards from "./components/Cards/Cards";
-import Pagination from "./components/Pagination/Pagination";
 import Navbar from "./components/Navbar/Navbar";
+import Character from "./components/Pages/Character";
+import Episodes from "./components/Pages/Episodes";
 
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -14,24 +12,26 @@ function App() {
   const [gender, setGender] = useState("");
   const [species, setSpecies] = useState("");
   const [fetchedData, setFetchedData] = useState({ info: {}, results: [] });
+  const [pageContent, setPageContent] = useState("Characters");
 
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
-  useEffect(() => {
-    (async function () {
-      try {
-        let response = await fetch(api);
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        let data = await response.json();
-        setFetchedData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+  const fetchCharacters = async () => {
+    try {
+      let response = await fetch(api);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
-    })();
+      let data = await response.json();
+      setFetchedData(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCharacters();
   }, [api]);
-  console.log(api);
 
   const handleFilterChange = (event: any) => {
     const { name, value } = event.target;
@@ -53,24 +53,30 @@ function App() {
             <h1 className="text-center">Rick & Morty Wiki🪐</h1>
           </div>
           <div className="col-8">
-            <Navbar />
+            <Navbar
+              setPageContent={setPageContent}
+              fetchCharacters={fetchCharacters}
+            />
           </div>
         </div>
       </div>
-      <Search setPageNumber={setPageNumber} setSearch={setSearch} />
-      <div className="my-5">
-        <div className="row">
-          <Filters handleFilterChange={handleFilterChange} />
-          <div className="col-10 my-5">
-            <Cards characters={fetchedData.results} search={search} />
-          </div>
-        </div>
-      </div>
-      <Pagination
-        pageNumber={pageNumber}
-        setPageNumber={setPageNumber}
-        info={fetchedData.info}
-      />
+      {pageContent === "Characters" && (
+        <>
+          <Character
+            setPageNumber={setPageNumber}
+            setSearch={setSearch}
+            handleFilterChange={handleFilterChange}
+            fetchedData={fetchedData}
+            search={search}
+            pageNumber={pageNumber}
+          />
+        </>
+      )}
+      {pageContent === "Episodes" && (
+        <>
+          <Episodes />
+        </>
+      )}
     </div>
   );
 }
