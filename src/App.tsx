@@ -61,7 +61,7 @@ function App() {
       <div className="my-5">
         <div className="row">
           <Filters handleFilterChange={handleFilterChange} />
-          <div className="col-10">
+          <div className="col-10 my-5">
             <Cards characters={fetchedData.results} search={search} />
           </div>
         </div>
