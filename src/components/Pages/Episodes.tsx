@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Cards from "../Cards/Cards";
+import Filters from "../Filters/Filters";
+import EpisodeLists from "../EpisodeLists/EpisodeLists";
 
-const Episodes = () => {
+const Episodes = (handleFilterChange) => {
   const [characters, setCharacters] = useState([]);
   const episodesApi = "https://rickandmortyapi.com/api/episode/1";
 
@@ -14,7 +16,7 @@ const Episodes = () => {
       const data = await response.json();
       const characterUrls = data.characters;
       const charactersData = await Promise.all(
-        characterUrls.map(async (url) => {
+        characterUrls.map(async (url: any) => {
           const characterResponse = await fetch(url);
           if (!characterResponse.ok) {
             throw new Error("Network response for character was not ok");
@@ -34,8 +36,14 @@ const Episodes = () => {
 
   return (
     <div>
-      <h2>Characters in Episode 1</h2>
-      <Cards characters={characters} search="" />
+      <div className="my-5">
+        <div className="row">
+          <EpisodeLists />
+          <div className="col-10 my-5">
+            <Cards characters={characters} search="" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.filter-container {
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+.form-check .form-check-input {
+  float: left;
+  margin-left: 0.5em;
+}
