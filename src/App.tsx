@@ -14,11 +14,11 @@ function App() {
   const [fetchedData, setFetchedData] = useState({ info: {}, results: [] });
   const [pageContent, setPageContent] = useState("Characters");
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
+  let characterApi = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
   const fetchCharacters = async () => {
     try {
-      let response = await fetch(api);
+      let response = await fetch(characterApi);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     fetchCharacters();
-  }, [api]);
+  }, [characterApi]);
 
   const handleFilterChange = (event: any) => {
     const { name, value } = event.target;
