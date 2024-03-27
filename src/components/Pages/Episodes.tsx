@@ -5,6 +5,7 @@ import EpisodeLists from "../EpisodeLists/EpisodeLists";
 const Episodes = () => {
   const [characters, setCharacters] = useState([]);
   const [selectedEpisodeId, setSelectedEpisodeId] = useState("");
+  const [selectedEpisodeName, setSelectedEpisodeName] = useState(""); // Yeni state tanımı
 
   const episodesApi = `https://rickandmortyapi.com/api/episode/${selectedEpisodeId}`;
 
@@ -26,6 +27,7 @@ const Episodes = () => {
         })
       );
       setCharacters(charactersData);
+      setSelectedEpisodeName(data.name); //
     } catch (error) {
       console.error("Error fetching episode data:", error);
     }
@@ -44,9 +46,11 @@ const Episodes = () => {
   return (
     <div>
       <div className="my-5">
+        {/* Bölüm adını ekrana yazdır */}
         <div className="row">
           <EpisodeLists onSelectEpisode={handleSelectEpisode} />
           <div className="col-10 my-5">
+            <h2>Selected Episode: {selectedEpisodeName}</h2>{" "}
             <Cards characters={characters} search="" />
           </div>
         </div>

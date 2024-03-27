@@ -34,7 +34,7 @@ const EpisodeLists = ({ onSelectEpisode }) => {
     fetchAllEpisodes();
   }, []);
 
-  const handleEpisodeChange = (event) => {
+  const handleEpisodeChange = (event: any) => {
     const selectedEpisodeId = event.target.value;
     setSelectedEpisode(selectedEpisodeId);
     onSelectEpisode(selectedEpisodeId); // Seçilen bölümü iletmek için
