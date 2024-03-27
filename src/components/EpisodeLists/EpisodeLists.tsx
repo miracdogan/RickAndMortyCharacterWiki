@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const EpisodeLists = () => {
-  const [fetchedData, setFetchedData] = useState({ info: {}, results: [] });
+const EpisodeLists = ({ onSelectEpisode }) => {
   const [allEpisodes, setAllEpisodes] = useState([]);
   const [selectedEpisode, setSelectedEpisode] = useState("");
 
@@ -36,7 +35,9 @@ const EpisodeLists = () => {
   }, []);
 
   const handleEpisodeChange = (event) => {
-    setSelectedEpisode(event.target.value);
+    const selectedEpisodeId = event.target.value;
+    setSelectedEpisode(selectedEpisodeId);
+    onSelectEpisode(selectedEpisodeId); // Seçilen bölümü iletmek için
   };
 
   return (
