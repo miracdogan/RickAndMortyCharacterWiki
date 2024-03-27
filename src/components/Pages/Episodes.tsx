@@ -5,7 +5,7 @@ import EpisodeLists from "../EpisodeLists/EpisodeLists";
 const Episodes = () => {
   const [characters, setCharacters] = useState([]);
   const [selectedEpisodeId, setSelectedEpisodeId] = useState("");
-  const [selectedEpisodeName, setSelectedEpisodeName] = useState(""); // Yeni state tanımı
+  const [selectedEpisodeName, setSelectedEpisodeName] = useState("");
 
   const episodesApi = `https://rickandmortyapi.com/api/episode/${selectedEpisodeId}`;
 
@@ -46,7 +46,6 @@ const Episodes = () => {
   return (
     <div>
       <div className="my-5">
-        {/* Bölüm adını ekrana yazdır */}
         <div className="row">
           <EpisodeLists onSelectEpisode={handleSelectEpisode} />
           <div className="col-10 my-5">
