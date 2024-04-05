@@ -1,4 +1,5 @@
 import React from "react";
+import { FaRegHeart } from "react-icons/fa";
 import "./Cards.css";
 
 const Cards = ({
@@ -13,7 +14,7 @@ const Cards = ({
   const filteredCharacters = characters.filter((character: any) =>
     character.name.toLowerCase().includes(search.toLowerCase())
   );
-
+  const handleClick = () => {};
   return (
     <div className="row">
       {filteredCharacters.length > 0 ? (
@@ -40,6 +41,11 @@ const Cards = ({
                   />
                   <div className={`position-absolute badge ${badgeClass}`}>
                     {character.status}
+                  </div>
+                  <div>
+                    <button onClick={handleClick}>
+                      <FaRegHeart className="position-absolute heart" />
+                    </button>
                   </div>
                 </div>
                 <div className="content mt-2">

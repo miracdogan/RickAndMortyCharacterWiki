@@ -23,3 +23,8 @@
 .position-relative {
   overflow: hidden;
 }
+
+.heart {
+  top: 5px;
+  right: 5px;
+}
