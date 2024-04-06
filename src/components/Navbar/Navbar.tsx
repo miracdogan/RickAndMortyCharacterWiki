@@ -1,9 +1,14 @@
 import React from "react";
 
-function Navbar({ setPageContent, fetchCharacters }) {
+function Navbar({ setPageContent, fetchCharacters, setShowFavorites }) {
   const handleCharactersClick = () => {
     setPageContent("Characters");
     fetchCharacters();
+  };
+
+  const handleFavoritesClick = () => {
+    setPageContent("Favorites");
+    setShowFavorites(true);
   };
 
   return (
@@ -28,8 +33,8 @@ function Navbar({ setPageContent, fetchCharacters }) {
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            Locations
+          <a className="nav-link" href="#" onClick={handleFavoritesClick}>
+            Favorites
           </a>
         </li>
       </ul>

@@ -4,7 +4,7 @@ import EpisodeLists from "../EpisodeLists/EpisodeLists";
 
 const Episodes = () => {
   const [characters, setCharacters] = useState([]);
-  const [selectedEpisodeId, setSelectedEpisodeId] = useState("");
+  const [selectedEpisodeId, setSelectedEpisodeId] = useState("1");
   const [selectedEpisodeName, setSelectedEpisodeName] = useState("");
 
   const episodesApi = `https://rickandmortyapi.com/api/episode/${selectedEpisodeId}`;
@@ -49,7 +49,9 @@ const Episodes = () => {
         <div className="row">
           <EpisodeLists onSelectEpisode={handleSelectEpisode} />
           <div className="col-10 my-5">
-            <h2>Selected Episode: {selectedEpisodeName}</h2>{" "}
+            <h2 className="text-center fs-1 fw-semibold">
+              Selected Episode: {selectedEpisodeName}
+            </h2>{" "}
             <Cards characters={characters} search="" />
           </div>
         </div>

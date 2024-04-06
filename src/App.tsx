@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap";
 import Navbar from "./components/Navbar/Navbar";
 import Character from "./components/Pages/Character";
 import Episodes from "./components/Pages/Episodes";
+import Favorites from "./components/Pages/Favorites";
 
 function App() {
   const [pageNumber, setPageNumber] = useState(1);
@@ -13,6 +14,7 @@ function App() {
   const [species, setSpecies] = useState("");
   const [fetchedData, setFetchedData] = useState({ info: {}, results: [] });
   const [pageContent, setPageContent] = useState("Characters");
+  const [showFavorites, setShowFavorites] = useState(false);
 
   let characterApi = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
@@ -56,6 +58,7 @@ function App() {
             <Navbar
               setPageContent={setPageContent}
               fetchCharacters={fetchCharacters}
+              setShowFavorites={setShowFavorites}
             />
           </div>
         </div>
@@ -77,6 +80,10 @@ function App() {
           <Episodes />
         </>
       )}
+      <Favorites
+        show={showFavorites}
+        handleClose={() => setShowFavorites(false)}
+      />
     </div>
   );
 }
